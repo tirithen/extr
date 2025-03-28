@@ -1,0 +1,29 @@
+[package]
+name = "extr"
+version = "0.1.0"
+description = "The archive extractor that makes unpacking files as easy as typing their name. No more memorizing complex flags or commands - just point extr at any archive and let the magic happen. Supporting 30+ formats, extr is the Swiss Army knife for all your file extraction needs."
+authors = ["Fredrik Söderström <tirithen@gmail.com>"]
+license = "GPL-3.0-or-later"
+edition = "2021"
+rust-version = "1.70"
+readme = "README.md"
+homepage = "https://github.com/tirithen/extr"
+repository = "https://github.com/tirithen/extr"
+documentation = "https://docs.rs/extr"
+keywords = ["archive", "extraction", "compression", "cli", "utility"]
+categories = ["command-line-utilities", "compression", "filesystem"]
+
+[dependencies]
+anyhow = "1.0.97"
+clap = { version = "4.5.34", features = ["derive"] }
+crossbeam-channel = "0.5.14"
+lazy_static = "1.5.0"
+owo-colors = "4.2.0"
+which = "7.0.2"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
